@@ -40,6 +40,7 @@
 
       const outputEl = document.querySelector('.output');
 
+      // Array of movies
       const movies = [
         'Les Quatre Cents Coup',
         'Basic Instinct',
@@ -69,6 +70,20 @@
         'Beetlejuice',
         'Fast Times at Ridgemont High',
       ];
+
+      // 1. Sort the array alphabetically and log it to the console
+      const sortedMovies = movies.slice().sort();
+      console.log('Alphabetically sorted movies:', sortedMovies);
+
+      // 2. Create a single string of the movie titles and log them line by line
+      const moviesString = sortedMovies.join('\n');
+      console.log('Movies listed line by line:\n' + moviesString);
+
+      // Display the sorted list in the output div
+      outputEl.innerHTML = `
+        <strong>Alphabetically Sorted Movies:</strong><br>
+        <pre>${moviesString}</pre>
+      `;
     </script>
   </body>
 </html>
