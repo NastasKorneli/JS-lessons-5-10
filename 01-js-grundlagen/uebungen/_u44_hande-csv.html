@@ -31,9 +31,29 @@
       const outputEl = document.querySelector('.output');
 
       const productList =
-        '3Doodler 3D Printing Pen, Game of Thrones Wax Seal Coasters, 10th Doctor Sonic Screwdriver Exclusive Programmable TV, Electronic Butterfly in a Jar, Aquafarm: Aquaponics Fish Garden, Cassette Adapter Bluetooth, Marvel Comics Lightweight Infinity Scarf, Ollie - The App Controlled Robot, Sound Splash Bluetooth Waterproof Shower Speaker, PowerCube, Backpack of Holding,  Retro Duo Portable NES/SNES Game System, Universal Gadget Wrist Charger, USB Squirming Tentacle, USB Fishquarium, Space Bar Keyboard Organizer & USB Hub Pop, USB Pet Rock  , Powerstation 5- E. Maximus Chargus, Dual Heated Travel Mug, Crosley Collegiate Portable USB Turntable, Meh Hoodie, Magnetic Accelerator Cannon, 8-Bit Heat-Change Mug';
+        '3Doodler 3D Printing Pen, Game of Thrones Wax Seal Coasters, 10th Doctor Sonic Screwdriver Exclusive Programmable TV, Electronic Butterfly in a Jar, Aquafarm: Aquaponics Fish Garden, Cassette Adapter Bluetooth, Marvel Comics Lightweight Infinity Scarf, Ollie - The App Controlled Robot, Sound Splash Bluetooth Waterproof Shower Speaker, PowerCube, Backpack of Holding, Retro Duo Portable NES/SNES Game System, Universal Gadget Wrist Charger, USB Squirming Tentacle, USB Fishquarium, Space Bar Keyboard Organizer & USB Hub Pop, USB Pet Rock, Powerstation 5- E. Maximus Chargus, Dual Heated Travel Mug, Crosley Collegiate Portable USB Turntable, Meh Hoodie, Magnetic Accelerator Cannon, 8-Bit Heat-Change Mug';
 
-      // TODO: Funktions handleCsv erstellen
+      // Function to handle the CSV string
+      function handleCsv(csvString) {
+        // Split the string into an array
+        const productArray = csvString.split(',').map(item => item.trim());
+
+        // Sort the array alphabetically
+        const sortedProducts = productArray.sort();
+
+        // Log each product in the sorted list line by line
+        console.log('Sorted Product List:');
+        sortedProducts.forEach(product => console.log(product));
+
+        // Display the sorted list in the output div
+        outputEl.innerHTML = `
+          <strong>Alphabetically Sorted Products:</strong><br>
+          <ul>${sortedProducts.map(item => `<li>${item}</li>`).join('')}</ul>
+        `;
+      }
+
+      // Call the function with the productList
+      handleCsv(productList);
     </script>
   </body>
 </html>
