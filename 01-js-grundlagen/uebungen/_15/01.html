@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung 15: Reichweite & Verbrauch</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <div class="alert alert-primary">
+          <h1>Übung 15: Reichweite & Verbrauch</h1>
+          <ol>
+            <li>
+              Geben Sie die gefahrenen Kilometer (Strecke), die verbrauchte
+              Benzinmenge und die Tankgröße ein. Das Programm berechnet den
+              Kraftstoffverbrauch auf 100 km und die maximale Reichweite.
+            </li>
+          </ol>
+        </div>
+
+        <!-- Формуляр -->
+        <form id="fuelForm" class="my-3">
+          <div class="mb-3">
+            <label for="distance" class="form-label"
+              >Gefahrene Kilometer (km):</label
+            >
+            <input type="number" id="distance" class="form-control" required />
+          </div>
+          <div class="mb-3">
+            <label for="fuelUsed" class="form-label"
+              >Verbrauchte Benzinmenge (Liter):</label
+            >
+            <input type="number" id="fuelUsed" class="form-control" required />
+          </div>
+          <div class="mb-3">
+            <label for="tankSize" class="form-label">Tankgröße (Liter):</label>
+            <input type="number" id="tankSize" class="form-control" required />
+          </div>
+          <button type="submit" class="btn btn-primary">Berechnen</button>
+        </form>
+
+        <div class="output-a alert alert-secondary my-3"></div>
+        <div class="output-b alert alert-secondary my-3"></div>
+      </div>
+    </main>
+
+    <script>
+      'use strict';
+
+      const fuelForm = document.getElementById('fuelForm');
+      const outputAEl = document.querySelector('.output-a');
+      const outputBEl = document.querySelector('.output-b');
+
+      fuelForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const distance = parseFloat(document.getElementById('distance').value);
+        const fuelUsed = parseFloat(document.getElementById('fuelUsed').value);
+        const tankSize = parseFloat(document.getElementById('tankSize').value);
+
+        const fuelConsumption = (fuelUsed / distance) * 100;
+
+        const maxRange = (tankSize * distance) / fuelUsed;
+
+        outputAEl.innerHTML = `Ihr Kraftstoffverbrauch beträgt <strong>${fuelConsumption.toFixed(
+          2
+        )} Liter</strong> auf 100 km.`;
+        outputBEl.innerHTML = `Ihre maximale Reichweite beträgt <strong>${maxRange.toFixed(
+          2
+        )} Kilometer</strong>.`;
+      });
+    </script>
+  </body>
+</html>

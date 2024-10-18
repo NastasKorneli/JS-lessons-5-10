@@ -1,0 +1,8 @@
+{
+  "ForEach Loop": {
+    "scope": "javascript",
+    "prefix": "foreach",
+    "body": ["${1:array}.forEach(${2:item} => {", "  $0", "});"],
+    "description": "ForEach loop"
+  }
+}

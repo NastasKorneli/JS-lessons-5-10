@@ -1,0 +1,16 @@
+{
+  "Async-Await Function": {
+    "scope": "javascript",
+    "prefix": "asyncfunc",
+    "body": [
+      "async function ${1:functionName}(${2:params}) {",
+      "  try {",
+      "    $0",
+      "  } catch (error) {",
+      "    console.error(error);",
+      "  }",
+      "}"
+    ],
+    "description": "Async-await function"
+  }
+}

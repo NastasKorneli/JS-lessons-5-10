@@ -1,0 +1,8 @@
+{
+  "Function Declaration": {
+    "scope": "javascript",
+    "prefix": "func",
+    "body": ["function ${1:functionName}(${2:params}) {", "  $0", "}"],
+    "description": "Function declaration"
+  }
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung: Die dunkle Seite von JavaScript</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <h1>Übung: Die dunkle Seite von JavaScript</h1>
+        <p>
+          Programmieren Sie ein kleines Quiz, in dem ein Spieler Fragen zu JS
+          beantworten muss, um gegen die dunkle Seite von JavaScript anzutreten.
+        </p>
+      </div>
+    </main>
+    <script>
+      'use strict';
+
+      const FRAGE_1 = 'Welcher Operator hat die höhere Priorität: * oder + ?';
+      const LÖSUNG_1 = '*';
+
+      let benutzername = prompt('Wie heißt du, mutiger Coder?');
+      alert(
+        'Willkommen, ' +
+          benutzername +
+          '! Möge die Macht des Source mit dir sein.'
+      );
+
+      let bereit = confirm(
+        'Fühlst du dich stark genug, um gegen die dunkle Seite von JavaScript anzutreten?'
+      );
+      if (bereit) {
+        alert(
+          'Super! Lass uns den Kampf gegen schlechten Code beginnen, ' +
+            benutzername +
+            '!'
+        );
+
+        let antwort1 = prompt(FRAGE_1);
+        if (antwort1 === LÖSUNG_1) {
+          alert('Richtig! Der * Operator hat eine höhere Priorität als +.');
+        } else {
+          alert('Falsch! Die richtige Antwort war *.');
+        }
+
+        let antwort2 = prompt(
+          "Was ist das deutsche Wort für 'if'? (Hinweis: Es gibt mehrere richtige Antworten)"
+        );
+        if (
+          antwort2.toLowerCase() === 'wenn' ||
+          antwort2.toLowerCase() === 'falls'
+        ) {
+          alert("Richtig! 'Wenn' oder 'Falls' sind beide richtig.");
+        } else {
+          alert("Falsch! Die richtigen Antworten waren 'wenn' oder 'falls'.");
+        }
+
+        let antwort3 = prompt(
+          'Bitte gib einen String ein, der zwischen 8 und 15 Zeichen lang ist.'
+        );
+        if (antwort3.length >= 8 && antwort3.length <= 15) {
+          alert('Gut gemacht! Deine Stringlänge ist korrekt.');
+        } else {
+          alert(
+            'Falsch! Die Stringlänge muss zwischen 8 und 15 Zeichen liegen.'
+          );
+        }
+      } else {
+        alert(
+          'Schade! Vielleicht ein anderes Mal, wenn du stärker bist. Auf Wiedersehen, ' +
+            benutzername +
+            '.'
+        );
+        throw new Error('Spiel vom Spieler abgebrochen.');
+      }
+    </script>
+  </body>
+</html>

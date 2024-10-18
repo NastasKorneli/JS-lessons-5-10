@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Übung 29: Die dunkle Seite von JavaScript — der Kampf geht weiter
+    </title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <div class="alert alert-primary">
+          <h1>
+            Übung 29: Die dunkle Seite von JavaScript — der Kampf geht weiter
+          </h1>
+
+          <p>
+            Es wird Zeit, das Spiel weiter zu optimieren. Nimm dir eine der
+            Fragen vor, die schon implementiert ist:
+          </p>
+          <p>
+            »Was heißt if auf Deutsch?« (Mehrere Lösungsmöglichkeiten: wenn,
+            falls).
+          </p>
+          <p>
+            Der Code deckt schon drei verschiedene Lösungsmöglichkeiten ab. Aber
+            was ist, wenn jemand statt
+            <code>wenn</code> <code>Wenn</code> oder <code>WENN</code> schreibt?
+          </p>
+          <p>
+            Das Thema Groß- und Kleinschreibung wird dir bei Benutzereingaben
+            öfter begegnen. Für das Spiel würde es zum Beispiel helfen, wenn der
+            Spieler die Eingabe immer komplett kleinschreibt. Sicher ist der
+            Spieler verwirrt, wenn das Spiel seine Antwort Wenn als falsch
+            quittiert.
+          </p>
+          <p>
+            Optimiere die betreffende Stelle im Spiel, indem du die
+            Benutzereingabe in Kleinbuchstaben umwandelst — vor Prüfung der
+            if-Bedingung.
+          </p>
+        </div>
+      </div>
+    </main>
+    <script>
+      'use strict';
+
+      const QUESTION_2 = 'Was ist das deutsche Wort für if?';
+      const SOLUTION_2A = 'falls';
+      const SOLUTION_2B = 'wenn';
+
+      function checkAnswer(input) {
+        // Convert the user input to lowercase
+        const userAnswer = input.toLowerCase();
+
+        if (
+          userAnswer === SOLUTION_2A.toLowerCase() ||
+          userAnswer === SOLUTION_2B.toLowerCase()
+        ) {
+          alert('Richtig! 🎉');
+        } else {
+          alert('Falsch, versuch es nochmal.');
+        }
+      }
+
+      checkAnswer('WENN'); // Should return "Richtig! 🎉"
+      checkAnswer('falls'); // Should return "Richtig! 🎉"
+      checkAnswer('Wenn'); // Should return "Richtig! 🎉"
+    </script>
+  </body>
+</html>

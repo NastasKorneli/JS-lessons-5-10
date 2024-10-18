@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung 10: Bezeichner verbessern</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <h1>Übung 10: Bezeichner verbessern</h1>
+        <table class="table table-striped my-5">
+          <thead class="table-dark">
+            <tr>
+              <th>Bezeichner</th>
+              <th>Bedeutung</th>
+              <th>Problem</th>
+              <th>Vorschläge</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>bildNr</td>
+              <td>Inhalt</td>
+              <td>Unklare Bedeutung</td>
+              <td>imageNumber</td>
+            </tr>
+            <tr>
+              <td>bildid</td>
+              <td>Inhalt</td>
+              <td>Klein-/Großschreibung inkonsistent</td>
+              <td>imageId</td>
+            </tr>
+
+            <tr>
+              <td>bildZähler</td>
+              <td>Anzahl der hochgeladenen Bilder</td>
+              <td>Deutsch-Englisch gemischt</td>
+              <td>imageCounter</td>
+            </tr>
+            <tr>
+              <td>
+                zahlerFuerDie AktuelleZeileIn DerTabelleDie DieBenutzer
+                Auflistet
+              </td>
+              <td>
+                Zähler für die aktuelle Zeile, in der Tabelle, die die Benutzer
+                auflistet.
+              </td>
+              <td>Zu lang und schwer lesbar</td>
+              <td>userTableRowCounter</td>
+            </tr>
+            <tr>
+              <td>urenKelvornAme</td>
+              <td>Vorname des Sohns eines Enkels</td>
+              <td>Unklare und nicht beschreibende Benennung</td>
+              <td>grandchildFirstName</td>
+            </tr>
+            <tr>
+              <td>x</td>
+              <td>Geburtsdatum</td>
+              <td>Zu kurz und unklar</td>
+              <td>birthDate</td>
+            </tr>
+            <tr>
+              <td>y</td>
+              <td>Nummer der aktuellen Seite</td>
+              <td>Zu kurz und unklar</td>
+              <td>currentPageNumber</td>
+            </tr>
+            <tr>
+              <td>d</td>
+              <td>Dateiname</td>
+              <td>Zu kurz und unklar</td>
+              <td>fileName</td>
+            </tr>
+
+            <tr>
+              <td>faqUeberschrift</td>
+              <td>Überschrift der Liste häufig gestellter Fragen</td>
+              <td>Deutsch-Englisch gemischt</td>
+              <td>faqHeader</td>
+            </tr>
+
+            <tr>
+              <td>menHoeh</td>
+              <td>Höhe eines Menüs</td>
+              <td>Schreibfehler</td>
+              <td>menuHeight</td>
+            </tr>
+
+            <tr>
+              <td>strName</td>
+              <td>Straßenname</td>
+              <td>Unklare Abkürzung</td>
+              <td>streetName</td>
+            </tr>
+
+            <tr>
+              <td>wanf</td>
+              <td>Wandfarbe</td>
+              <td>Schreibfehler</td>
+              <td>wallColor</td>
+            </tr>
+
+            <tr>
+              <td>PoStLeiTZaHl</td>
+              <td>Postleitzahl</td>
+              <td>Inkonsequente Groß-/Kleinschreibung</td>
+              <td>postalCode</td>
+            </tr>
+            <tr>
+              <td>PLZ</td>
+              <td>Postleitzahl</td>
+              <td>Kurz, aber okay</td>
+              <td>postalCode</td>
+            </tr>
+
+            <tr>
+              <td>plz</td>
+              <td>Postleitzahl</td>
+              <td>Kurz, aber okay</td>
+              <td>postalCode</td>
+            </tr>
+
+            <tr>
+              <td>2.frage</td>
+              <td>Die 2. Frage</td>
+              <td>Punkt im Variablennamen nicht zulässig</td>
+              <td>secondQuestion</td>
+            </tr>
+            <tr>
+              <td>anzahl?</td>
+              <td>
+                Die vom Benutzer eingegebene Anzahl von Produktexemplaren, die
+                er kaufen möchte.
+              </td>
+              <td>Fragezeichen im Variablennamen nicht zulässig</td>
+              <td>productQuantity</td>
+            </tr>
+            <tr>
+              <td>wichtige Meldung!</td>
+              <td>
+                Die Variable enthält den Text einer wichtigen Systemmeldung.
+              </td>
+              <td>Sonderzeichen im Variablennamen nicht zulässig</td>
+              <td>importantMessage</td>
+            </tr>
+            <tr>
+              <td>pi</td>
+              <td>Die Zahl π (3.14…)</td>
+              <td>
+                Kleinbuchstabe, aber für Konstante besser in Großbuchstaben
+              </td>
+              <td>PI</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <script>
+      'use strict';
+    </script>
+  </body>
+</html>

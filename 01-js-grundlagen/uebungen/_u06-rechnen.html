@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vergleich: push() und slice()</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <h1>Vergleich der Methoden push() und slice()</h1>
+
+  <div>
+    <h2>JavaScript-Code:</h2>
+    <pre>
+      <code>
+        // Ursprüngliches Array
+        const originalArray = [1, 2, 3, 4, 5];
+
+        // Beispiel mit einer mutierenden Methode - .push()
+        const mutatedArray = originalArray;
+        mutatedArray.push(6);
+
+        console.log("Nach .push():");
+        console.log("originalArray:", originalArray);  // [1, 2, 3, 4, 5, 6]
+        console.log("mutatedArray:", mutatedArray);    // [1, 2, 3, 4, 5, 6]
+        console.log(originalArray === mutatedArray);   // true — es ist dasselbe Objekt
+
+        // Jetzt verwenden wir eine nicht mutierende Methode - .slice()
+        const newArray = originalArray.slice(0, 3);
+
+        console.log("\nNach .slice():");
+        console.log("originalArray:", originalArray);  // [1, 2, 3, 4, 5, 6] — bleibt unverändert
+        console.log("newArray:", newArray);            // [1, 2, 3] — ein neues Array
+        console.log(originalArray === newArray);       // false — das sind unterschiedliche Objekte
+      </code>
+    </pre>
+  </div>
+
+  <h2>Konsole-Ausgabe:</h2>
+  <pre id="console-output"></pre>
+
+  <h2>Erklärung (Markdown):</h2>
+  <div id="erklarung"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Ursprüngliches Array
+      const originalArray = [1, 2, 3, 4, 5];
+
+      // Beispiel mit einer mutierenden Methode - .push()
+      const mutatedArray = originalArray;
+      mutatedArray.push(6);
+
+      let consoleOutput = "Nach .push():\n";
+      consoleOutput += "originalArray: " + JSON.stringify(originalArray) + "\n";  // [1, 2, 3, 4, 5, 6]
+      consoleOutput += "mutatedArray: " + JSON.stringify(mutatedArray) + "\n";    // [1, 2, 3, 4, 5, 6]
+      consoleOutput += "Vergleich: " + (originalArray === mutatedArray) + "\n";   // true — es ist dasselbe Objekt
+
+      // Jetzt verwenden wir eine nicht mutierende Methode - .slice()
+      const newArray = originalArray.slice(0, 3);
+
+      consoleOutput += "\nNach .slice():\n";
+      consoleOutput += "originalArray: " + JSON.stringify(originalArray) + "\n";  // [1, 2, 3, 4, 5, 6] — bleibt unverändert
+      consoleOutput += "newArray: " + JSON.stringify(newArray) + "\n";            // [1, 2, 3] — ein neues Array
+      consoleOutput += "Vergleich: " + (originalArray === newArray) + "\n";       // false — das sind unterschiedliche Objekte
+
+      // Ausgabe in das HTML-Dokument
+      document.getElementById('console-output').innerText = consoleOutput;
+
+      // Markdown-Erklärung
+      const markdownText = `
+# Erklärung auf Deutsch
+
+1. **Mutierende Methode .push():**
+   - Wir weisen \`originalArray\` der Variablen \`mutatedArray\` zu, wodurch beide auf dasselbe Array verweisen.
+   - Mit \`.push(6)\` fügen wir eine 6 am Ende des Arrays hinzu. Da \`.push()\` **mutierend** ist, wird das originale Array direkt verändert.
+   - Nach dem Aufruf von \`.push()\` enthalten sowohl \`originalArray\` als auch \`mutatedArray\` dieselben Werte, da sie **auf dasselbe Objekt** verweisen. Das Vergleichsergebnis \`originalArray === mutatedArray\` ist \`true\`, weil sie dasselbe Objekt im Speicher sind.
+
+2. **Nicht mutierende Methode .slice():**
+   - Die Methode \`.slice(0, 3)\` erstellt eine Kopie der ersten drei Elemente aus dem \`originalArray\` und speichert sie in \`newArray\`.
+   - Das ursprüngliche Array \`originalArray\` bleibt unverändert, während \`newArray\` ein **neues Objekt** ist.
+   - Der Vergleich \`originalArray === newArray\` ergibt \`false\`, da sie **unterschiedliche Objekte** im Speicher sind, obwohl sie teilweise die gleichen Werte enthalten.
+
+\`\`\`javascript
+// Ursprüngliches Array
+const originalArray = [1, 2, 3, 4, 5];
+
+// Beispiel mit einer mutierenden Methode - .push()
+const mutatedArray = originalArray;
+mutatedArray.push(6);
+
+console.log("Nach .push():");
+console.log("originalArray:", originalArray);  // [1, 2, 3, 4, 5, 6]
+console.log("mutatedArray:", mutatedArray);    // [1, 2, 3, 4, 5, 6]
+console.log(originalArray === mutatedArray);   // true — es ist dasselbe Objekt
+
+// Jetzt verwenden wir eine nicht mutierende Methode - .slice()
+const newArray = originalArray.slice(0, 3);
+
+console.log("\\nNach .slice():");
+console.log("originalArray:", originalArray);  // [1, 2, 3, 4, 5, 6] — bleibt unverändert
+console.log("newArray:", newArray);            // [1, 2, 3] — ein neues Array
+console.log(originalArray === newArray);       // false — das sind unterschiedliche Objekte
+\`\`\`
+      `;
+
+      // Konvertierung von Markdown in HTML und Einfügen in die Seite
+      document.getElementById('erklarung').innerHTML = marked(markdownText);
+    });
+  </script>
+</body>
+</html>

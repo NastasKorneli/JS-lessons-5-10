@@ -1,0 +1,14 @@
+{
+  "Try-Catch Block": {
+    "scope": "javascript",
+    "prefix": "trycatch",
+    "body": [
+      "try {",
+      "  $1",
+      "} catch (${2:error}) {",
+      "  console.error(${2});",
+      "}"
+    ],
+    "description": "Try-catch block"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "Arrow Function": {
+    "scope": "javascript",
+    "prefix": "afunc",
+    "body": ["const ${1:functionName} = (${2:params}) => {", "  $0", "};"],
+    "description": "Arrow function"
+  }
+}

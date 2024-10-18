@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Übung 22: Die Sache mit dem Schaltjahr</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container py-5">
+        <div class="alert alert-primary">
+          <h1>Übung 22: Die Sache mit dem Schaltjahr</h1>
+          <p>
+            Vielleicht gehören Sie zu den Menschen, die »die Sache mit dem
+            Schaltjahr« spannend finden. Und falls Sie es nicht spannend finden,
+            schreiben Sie einfach trotzdem ein Programm, das berechnet, ob es
+            sich bei einem Jahr um ein Schaltjahr handelt.
+          </p>
+          <p>
+            Fragen Sie den Anwender nach dem gewünschten Jahr und speichern Sie
+            die Eingabe in einer Variable.
+          </p>
+          <p>
+            Falls das betreffende Jahr ein Schaltjahr ist, soll die Konsole z.B.
+            den Satz »0000 ist ein Schaltjahr!« ausgeben; ansonsten »0000 ist
+            KEIN Schaltjahr« — mit dem eingegeben Jahr statt 0000.
+          </p>
+          <h4>Ein Jahr ist ein Schaltjahr, wenn das betreffende Jahr</h4>
+          <ul>
+            <li>ganzzahlig durch 400 teilbar ist.</li>
+            <li>
+              nicht ganzzahlig durch 100, aber ganzzahlig durch 4 teilbar ist.
+            </li>
+          </ul>
+
+          <div class="alert alert-warning">
+            Die Berechnung ist übrigens nicht zu 100 Prozent genau, aber für die
+            nächsten 2000 Jahre passt es noch.
+          </div>
+          <div class="output alert alert-secondary my-3"></div>
+        </div>
+      </div>
+    </main>
+    <script>
+      'use strict';
+
+      const year = Number(prompt('Bitte geben Sie ein Jahr ein:'));
+      const outputEl = document.querySelector('.output');
+
+      if (isNaN(year)) {
+        outputEl.textContent =
+          'Das ist keine gültige Zahl. Bitte geben Sie ein Jahr ein.';
+        outputEl.classList.remove('alert-secondary');
+        outputEl.classList.add('alert-danger');
+      } else {
+        let message = '';
+        if (year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0)) {
+          message = `${year} ist ein Schaltjahr!`;
+          outputEl.classList.remove('alert-secondary');
+          outputEl.classList.add('alert-success');
+        } else {
+          message = `${year} ist KEIN Schaltjahr.`;
+          outputEl.classList.remove('alert-secondary');
+          outputEl.classList.add('alert-warning');
+        }
+
+        outputEl.textContent = message;
+      }
+    </script>
+  </body>
+</html>

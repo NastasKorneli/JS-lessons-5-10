@@ -1,0 +1,12 @@
+{
+  "Promise": {
+    "scope": "javascript",
+    "prefix": "promise",
+    "body": [
+      "const ${1:myPromise} = new Promise((resolve, reject) => {",
+      "  $2",
+      "});"
+    ],
+    "description": "Promise"
+  }
+}

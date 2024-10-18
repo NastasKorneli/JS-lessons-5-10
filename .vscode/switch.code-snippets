@@ -1,0 +1,16 @@
+{
+  "Switch Statement": {
+    "scope": "javascript",
+    "prefix": "switch",
+    "body": [
+      "switch (${1:expression}) {",
+      "  case ${2:value}:",
+      "    $3",
+      "    break;",
+      "  default:",
+      "    $0",
+      "}"
+    ],
+    "description": "Switch statement"
+  }
+}
