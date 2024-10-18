@@ -43,15 +43,23 @@
       const outputEl = document.querySelector('.output');
 
       // === FUNKTIONEN ======
-      // TODO: Funktionsdeklaration
+      // Funktion zur Umrechnung von Fahrenheit in Celsius
+      function convertFahrenheitToCelsius(fahrenheit) {
+        return (fahrenheit - 32) * 5 / 9;
+      }
 
       inputFahrenheitEl.addEventListener('input', (e) => {
         e.preventDefault();
 
         const fahrenheit = Number(inputFahrenheitEl.value);
-        console.log(fahrenheit);
-
-        // TODO: Funktionsaufruf und Ausgabe
+        
+        // Überprüfen ob die Eingabe eine gültige Zahl ist
+        if (!isNaN(fahrenheit)) {
+          const celsius = convertFahrenheitToCelsius(fahrenheit).toFixed(2);
+          outputEl.textContent = `${fahrenheit}°F entspricht ${celsius}°C`;
+        } else {
+          outputEl.textContent = 'Bitte eine gültige Zahl eingeben.';
+        }
       });
     </script>
   </body>

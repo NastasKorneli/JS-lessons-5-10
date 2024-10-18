@@ -15,7 +15,8 @@
             src="https://de.webmasters-europe.org/system/course_management/file/images/files/000/014/037/1000-667/53f6cb7feb9e9a7580d88ce5fa5a6d5c.jpg?1617534594"
             alt=""
             class="img-thumbnail my-3"
-            width="350" />
+            width="350"
+          />
           <p>
             Sie wollen ein digitales Rezeptbuch schreiben, und die Zutaten für das jeweilige Rezept stellen Sie in einem
             Array zur Verfügung.
@@ -24,12 +25,7 @@
             <li>
               <p>Legen Sie für das erste Rezept — Haferflocken-Kekse — ein Array mit den folgenden Zutaten an:</p>
               <pre>
-              <code>
-  70 ml Rapsöl
-  1 getrenntes Ei
-  100 g Zucker
-  1 TL Backpulver
-              </code>
+              <code>  70 ml Rapsöl  1 getrenntes Ei  100 g Zucker  1 TL Backpulver              </code>
             </pre>
             </li>
             <li>
@@ -90,23 +86,35 @@
 
       const introText = `Schmelzen Sie die Butter in einer Pfanne, geben Sie die Haferflocken dazu und vermischen Sie alles gut miteinander. \nNehmen Sie die Masse danach vom Herd und lassen Sie sie etwas auskühlen. Nun schlagen Sie das Eiweiß mit Zucker steif und rühren Eigelb, Backpulver und Mehl unter. Vermengen Sie nun die Masse mit den abgekühlten Haferflocken. \nSetzen Sie kleine Teighäufchen auf ein Backblech. Die Häufchen sollten nicht zu groß sein, da der Teig beim Backen etwas auseinanderläuft. Im vorgeheizten Backofen bei 170 °C 15 Minuten backen.`;
 
-      const recipeAr = [
-        '70 ml Rapsöl', //
+      // Schritt 1: Array initialisieren
+      let recipeAr = [
+        '70 ml Rapsöl',
         '1 getrenntes Ei',
         '100 g Zucker',
         '1 TL Backpulver',
       ];
 
-      // 2
+      // Schritt 2: Mehl ergänzen
+      recipeAr.push('1 EL Mehl');
 
-      // 3
+      // Schritt 3: Haferflocken an erster Stelle hinzufügen
+      recipeAr.unshift('100 g Haferflocken');
 
-      // 4
+      // Schritt 4: Rapsöl durch Butter ersetzen
+      const oilIndex = recipeAr.indexOf('70 ml Rapsöl');
+      if (oilIndex !== -1) {
+        recipeAr[oilIndex] = '75 g Butter';
+      }
 
+      // Schritt 5: Array in String umwandeln
+      const recipeString = recipeAr.join('<br>');
+
+      // Schritt 6: Anleitung und Rezept im HTML anzeigen und in der Konsole ausgeben
+      outputEl.innerHTML = recipeString;
       outputIntroEl.textContent = introText;
 
-      // 5
-      outputEl.innerHTML = ``;
+      console.log("Zutaten:\n" + recipeAr.join("\n"));
+      console.log("\nAnleitung:\n" + introText);
     </script>
   </body>
 </html>
