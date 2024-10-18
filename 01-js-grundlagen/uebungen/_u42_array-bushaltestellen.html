@@ -23,7 +23,8 @@
             src="https://de.webmasters-europe.org/system/course_management/file/images/files/000/014/038/422-537/cc8c459b5e870429279c64c8c804a4b1.png?1617534595"
             alt=""
             class="img-thumbnail my-3"
-            width="320" />
+            width="320"
+          />
           <ol class="list">
             <li>
               <p>Finden Sie die Position der gewünschten Zielhaltestelle Hubertusstr. heraus.</p>
@@ -42,7 +43,6 @@
             </li>
           </ol>
         </div>
-
         <div class="output alert alert-secondary"></div>
       </div>
     </main>
@@ -51,9 +51,7 @@
 
       const outputEl = document.querySelector('.output');
 
-      const formEl = document.querySelector('.form-calculate');
-      // 1
-
+      // Оригинальный список остановок
       const LINE_46 = [
         'Nordostbahnhof',
         'Theresienkrankenhaus',
@@ -66,11 +64,50 @@
         'Martha-Maria-Krkhs.',
       ];
 
-      // 2
+      // 1. Найти индекс остановки "Hubertusstr."
+      const hubertusIndex = LINE_46.indexOf('Hubertusstr.');
+      console.log(`Index der Haltestelle "Hubertusstr.":`, hubertusIndex);
 
-      // 3
+      // 2. Удалить все остановки после "Hubertusstr."
+      const shortRoute = LINE_46.slice(0, hubertusIndex + 1);
+      console.log('Haltestellen bis "Hubertusstr.":', shortRoute);
 
-      // 4
+      // 3. Функция, возвращающая все остановки до указанной конечной остановки
+      function getRouteTo(stop) {
+        const stopIndex = LINE_46.indexOf(stop);
+        if (stopIndex === -1) {
+          return `Die Haltestelle "${stop}" wurde nicht gefunden.`;
+        }
+        return LINE_46.slice(0, stopIndex + 1);
+      }
+
+      // 4. Функция с возможностью задания начальной и конечной остановок
+      function getCustomRoute(startStop, endStop) {
+        const startIndex = LINE_46.indexOf(startStop);
+        const endIndex = LINE_46.indexOf(endStop);
+
+        if (startIndex === -1 || endIndex === -1) {
+          return 'Eine oder beide Haltestellen wurden nicht gefunden.';
+        }
+        if (startIndex > endIndex) {
+          return 'Die Starthaltestelle liegt nach der Zielhaltestelle.';
+        }
+
+        return LINE_46.slice(startIndex, endIndex + 1);
+      }
+
+      // Тестирование функций
+      const routeToHubertus = getRouteTo('Hubertusstr.');
+      console.log('Route to Hubertusstr.:', routeToHubertus);
+
+      const customRoute = getCustomRoute('Teutoburger Str.', 'Spitalhof');
+      console.log('Custom route:', customRoute);
+
+      // Отображение результата на странице
+      outputEl.innerHTML = `
+        <strong>Route bis Hubertusstr.:</strong> ${routeToHubertus.join(', ')}<br>
+        <strong>Benutzerdefinierte Route:</strong> ${customRoute.join(', ')}
+      `;
     </script>
   </body>
 </html>
